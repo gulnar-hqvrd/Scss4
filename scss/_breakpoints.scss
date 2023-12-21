@@ -1,0 +1,72 @@
+$breakpoints: (
+  "xs": 0,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px,
+);
+
+
+@mixin xs{
+@media (min-width : map-get($breakpoints, "xs")){
+  @content;
+}
+
+}
+
+@mixin sm{
+  @media (min-width : map-get($breakpoints, "sm")){
+    // background-color: black;
+    @content;
+  }
+}
+
+
+@mixin md{
+  @media (min-width : map-get($breakpoints, "md")){
+    // background-color: tomato;gulp
+    @content;
+  }
+}
+
+@mixin lg{
+  @media (min-width : map-get($breakpoints, "lg")){
+    @content;
+  }
+}
+@mixin xl{
+  @media (min-width : map-get($breakpoints, "xl")){
+    @content;
+  }
+}
+
+@mixin xxl{
+  @media (min-width : map-get($breakpoints, "xxl")){
+    @content;
+  }
+}
+
+.responsive-content{
+  @include md{
+    color: yellowgreen;
+  }
+
+  // @include sm{
+  //   color: rgb(43, 0, 255);
+  // }
+}
+
+
+@mixin custom-btn {
+  @content;
+}
+
+.custom-btn{
+  @include custom-btn{
+    background-color: red;
+    padding:$base-padding;
+    border-radius: $base-border-radius;
+    font-size: $font-size-lg ;
+  }
+}
